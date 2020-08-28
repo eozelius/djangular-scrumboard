@@ -1,0 +1,62 @@
+<header class="logout-container">
+  <a ng-click="logout()">Logout</a>
+</header>
+
+<div class="banner">
+  <h1>Welcome to the DjAngular Scrumboard 🏆</h1>
+  <h2>Featuring a Django REST Backend and an Angular Frontend</h2>
+</div>
+
+<div class="scrumboard-container">
+
+  <div class="scrumboard-list" ng-repeat="list in data">
+    <h2>{{ list.name }}</h2>
+
+    <!-- Show "Create Card" -->
+    <p class="show-new-card-form-toggle" ng-click="showNewCardForm = !showNewCardForm">Create Card</p>
+    
+    <!-- Show "Filters" -->
+    <p class="show-new-card-form-toggle" ng-click="showFilters = !showFilters">Filters</p>
+
+    <!-- New Card Form -->
+    <div ng-show="showNewCardForm" class="add-card-container">
+      <input type="text" ng-model="newCardTitle" placeholder="Add A Card" />
+      <textarea ng-model="newCardDescription" placeholder="Description"></textarea>
+
+      <label for="story-points">Story Points:</label>
+      <input type="number" ng-model="storyPoints" id="story-points" placeholder="0" />
+
+      <label for="business-value">Business Value</label>
+      <input type="number" ng-model="businessValue" id="business-value" placeholder="0" />
+
+      <button ng-click="addCard(list, newCardTitle, newCardDescription, storyPoints, businessValue)">create card</button>
+    </div>
+
+    <!-- Filters form -->
+    <div class="filters-container" ng-show="showFilters">
+      <!-- Filter By -->
+      <input
+        ng-model="filterBy"
+        type="test"
+        placeholder="filter"
+      />
+
+      <!-- Sort By -->
+      <div class="sortby-container" ng-show="showFilters">
+        <p>Sort By</p>
+        <select ng-model="sortBy" placeholder="Sort By">
+          <option value="title">Title</option>
+          <option value="story_points">Story Points</option>
+          <option value="business_value">Business Value</option>
+        </select>
+      </div>
+    </div>
+
+
+    <ul>
+      <li ng-repeat="card in list.cards | filter:filterBy | orderBy:sortBy:reverse" >
+        <scrumboard-card></scrumboard-card>
+      </li>
+    </ul>
+  </div>
+</div>

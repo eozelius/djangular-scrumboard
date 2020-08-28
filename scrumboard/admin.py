@@ -1,3 +1,5 @@
 from django.contrib import admin
+from scrumboard.models import Card, List
 
-# Register your models here.
+admin.site.register(Card)
+admin.site.register(List)

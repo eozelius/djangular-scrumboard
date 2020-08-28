@@ -1,0 +1,20 @@
+<div class="login-container">
+  <p style="color:red" v-if="loginError">
+    {{ loginError }}
+  </p>
+
+  <form ng-submit="login">
+    <p>Login</p>
+    <input
+      ng-model="user.username"
+      type="text"
+      placeholder="username"
+    />
+    <input
+      ng-model="user.password" 
+      type="password"
+      passholder="password"
+    />
+    <button ng-click="login(username, password)">Login</button><br/>
+  </form>
+</div>

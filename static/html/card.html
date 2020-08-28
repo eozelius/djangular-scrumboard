@@ -1,0 +1,38 @@
+<div class="card-directive-container">
+
+  <!-- Render Card -->
+  <div
+    class="card-directive__content"
+    ng-show="!isEditting"
+  >
+    <h4>{{ card.title }}</h4>
+    <p class="description">{{ card.description }}</p>
+    <h6>story points: {{ card.story_points }}</h6>
+    <h6>business value: {{ card.business_value }}</h6>
+    <p class="edit-card-toggle" ng-click="isEditting = true"> - edit</p>
+  </div>
+
+  <!-- Edit Card -->
+  <div class="card-directive__update-form" ng-show="isEditting">
+    <input class="update-title" type="text" ng-model="card.title" value="{{ card.title }}" />
+    <textarea ng-model="card.description"></textarea>
+
+    <label>story points</label>
+    <input type="number" ng-model="card.story_points" />
+
+    <label>business value</label>
+    <input type="number" ng-model="card.business_value" />
+
+    <label>List</label><br/>
+    <select
+      ng-options="list as list.name for list in data"
+      ng-model="card.list_name"
+      placeholder="Select new list"
+    ></select> <br/>
+
+    
+    <p class="update-delete" ng-click="updateCard()">update | </p>
+
+    <p class="update-delete" ng-click="deleteCard()" style="color: rgb(167, 33, 33)">delete</p>
+  </div>
+</div>
