@@ -1,20 +1,22 @@
 (function () {
   angular
     .module('scrumboard.demo')
-    .controller('LoginController', ['$scope', '$http', '$location', LoginController])
+    .controller('LoginController', ['$scope', '$location', 'Login', LoginController])
 
-  function LoginController ($scope, $http, $location) {
+  function LoginController ($scope, $location, Login) {
     $scope.login = function () {
-      $http
-        .post('/auth_api/login', $scope.user)
-        .then(function(response) {
-          console.log('login success! response =>', response)
+      Login
+        .login($scope.user)
+        .then(function () {
           $location.url('/')
         })
-        .catch(function (error) {
-          console.error('login error! error =>', error)
-          $scope.loginError = error.data.message || 'DEFAULT invalid username/password combination'
+        .catch(function () {
+          $scope.loginError = 'asdf Invalid username/password combination'
         })
+    }
+
+    if (Login.isLoggedIn()) {
+      $location.url('/')
     }
   }
 })()

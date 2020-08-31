@@ -23,14 +23,18 @@
     <label>business value</label>
     <input type="number" ng-model="card.business_value" />
 
-    <label>List</label><br/>
-    <select
-      ng-options="list as list.name for list in data"
-      ng-model="card.list_name"
-      placeholder="Select new list"
-    ></select> <br/>
+    <label>List</label>
 
-    
+    <div class="list-changer">
+      <select
+        ng-options="list as list.name for list in data"
+        ng-model="destinationList"
+        placeholder="Select new list"
+      ></select>
+
+      <span ng-click="moveCard()"> - Change List</span>
+    </div>
+
     <p class="update-delete" ng-click="updateCard()">update | </p>
 
     <p class="update-delete" ng-click="deleteCard()" style="color: rgb(167, 33, 33)">delete</p>

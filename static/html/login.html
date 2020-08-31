@@ -1,20 +1,35 @@
+<header class="logout-container">
+  <p>DjAngular Scrum</p>
+  <a ng-if="isLoggedIn()" ng-click="logout()">Logout</a>
+  <a ng-if="!isLoggedIn()" href="/#!/login">Login</a>
+</header>
+
 <div class="login-container">
   <p style="color:red" v-if="loginError">
     {{ loginError }}
   </p>
 
-  <form ng-submit="login">
-    <p>Login</p>
-    <input
-      ng-model="user.username"
-      type="text"
-      placeholder="username"
-    />
-    <input
-      ng-model="user.password" 
-      type="password"
-      passholder="password"
-    />
-    <button ng-click="login(username, password)">Login</button><br/>
+  <form class="login-form" ng-submit="login">
+    <div class="input-group">
+      <label for="username">Username</label>
+      <input
+        ng-model="user.username"
+        type="text"
+        id="username"
+        placeholder="username"
+      />
+    </div>
+
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input
+        ng-model="user.password" 
+        type="password"
+        id="password"
+        placeholder="password"
+      />
+    </div>
+
+    <button ng-click="login(username, password)">Login</button>
   </form>
 </div>

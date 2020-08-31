@@ -10,7 +10,7 @@
         templateUrl: '/static/html/scrumboard.html',
         controller: 'ScrumboardController'
       })
-      .when('/login', {
+      .when('/djangular-login', {
         templateUrl: '/static/html/login.html',
         controller: 'LoginController'
       })

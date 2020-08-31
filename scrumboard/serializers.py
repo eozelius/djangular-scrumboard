@@ -10,7 +10,7 @@ class CardSerializer(serializers.ModelSerializer):
       'description',
       'story_points',
       'business_value',
-      'list_name',
+      'list_name'
     ]
 
 class ListSerializer(serializers.ModelSerializer):

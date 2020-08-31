@@ -1,5 +1,12 @@
 <header class="logout-container">
-  <a ng-click="logout()">Logout</a>
+  <a href="/#!">
+    <p>
+      DjAngular Scrum
+    </p>
+  </a>
+
+  <a ng-if="isLoggedIn()" ng-click="logout()">Logout</a>
+  <a ng-if="!isLoggedIn()" href="/#!/djangular-login">Login</a>
 </header>
 
 <div class="banner">

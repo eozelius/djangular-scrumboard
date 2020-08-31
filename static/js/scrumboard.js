@@ -1,14 +1,16 @@
 (function () {
   angular
     .module('scrumboard.demo', ['ngRoute'])
-    .controller('ScrumboardController', ['$scope', '$http', '$location', ScrumboardController])
+    .controller('ScrumboardController', ['$scope', '$http', 'Login', ScrumboardController])
 
-  function ScrumboardController ($scope, $http, $location) {
+  function ScrumboardController ($scope, $http, Login) {
     $scope.isEditting = false
     $scope.showNewCardForm = false
     $scope.showFilters = false
     $scope.filterBy = ''
-    
+    $scope.logout = Login.logout
+    $scope.isLoggedIn = Login.isLoggedIn
+
     // get initial data
     $scope.data = []
     $http
@@ -36,16 +38,6 @@
           $scope.description = ''
           $scope.businessValue = 0
           $scope.storyPoints = 0
-        })
-        .catch(console.error)
-    }
-
-    $scope.logout = function () {
-      $http
-        .get('/auth_api/logout')
-        .then(function (response) {
-          console.log('logout success! response =>', response)
-          $location.url('/login')
         })
         .catch(console.error)
     }

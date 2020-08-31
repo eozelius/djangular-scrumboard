@@ -110,15 +110,27 @@ button {
 header {
   width: 100%;
   height: 50px;
-  padding: 1% 2%;
+  padding: 1% 0;
   background-color: rgb(18, 46, 59);
   color: #fff;
 }
 
 header a {
   line-height: 50px;
-  font-size: 30px;
+  font-size: 18px;
   cursor: pointer;
+  font-weight: bold;
+  margin-left: 2%;
+  text-decoration: none;
+  color: #fff;
+}
+
+header p {
+  text-align: right;
+  line-height: 50px;
+  font-size: 18px;
+  float: right;
+  margin: 0 5% 0 0;
   font-weight: bold;
 }
 
@@ -233,6 +245,19 @@ input[type="number"] {
   margin: 5% 0;
 }
 
+.card-directive__update-form span {
+  display: inline;
+  cursor: pointer;
+}
+
+.card-directive__update-form span:hover {
+  font-weight: bold;
+}
+
+.card-directive__update-form select {
+  margin: 3% 0;
+}
+
 .show-new-card-form-toggle {
   color: rgb(231, 229, 231);
   cursor: pointer;
@@ -271,4 +296,45 @@ input[type="number"] {
   color: rgb(231, 229, 231);
   line-height: 40px;
   padding-left: 10%;
+}
+
+.login-form {
+  width: 25%;
+  margin: 10% auto;
+  border: 1px solid #ccc;
+  padding: 2% 4%;
+  border-radius: 4px;
+}
+
+.login-form .input-group {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.login-form label {
+  display: block;
+  margin: 2% 0;
+}
+
+.login-form input {
+  margin-bottom: 10%;
+  width: 96%;
+  height: 20px;
+}
+
+.login-form button {
+  margin: 10% auto;
+  display: block;
+}
+
+@media screen and (max-width: 500px) {
+  button {
+    width: 80px;
+    height: 30px;
+  }
+
+  .login-form {
+    width: 80%;
+  }
 }
